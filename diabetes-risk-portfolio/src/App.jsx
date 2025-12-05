@@ -4,12 +4,12 @@ import "./index.css";
 const HERO_LINKS = [
   {
     label: "View Project on GitHub",
-    href: "https://github.com/hannapan8/diabetes-risk-analysis",
+    href: "https://github.com/hannapan8/diabetes-risk-analysis-portfolio",
     variant: "primary",
   },
   {
     label: "Open Analysis Notebook",
-    href: "/notebooks/eda.ipynb",
+    href: "/notebooks/eda.html",
     variant: "secondary",
   },
   {
@@ -21,16 +21,16 @@ const HERO_LINKS = [
 
 const FIGURES = [
   {
-    src: "/figures/diabetes_age.png",
-    alt: "Bar chart of diabetes prevalence by age group",
+    src: "/figures/diabetes_lifestyle.png",
+    alt: "Bar chart of diabetes prevalence by lifestyle factor",
     caption:
-      "Diabetes prevalence by age group. Risk increases as one ages.",
+      "Lifestyle factors like physical activities and eating/drinking healthy have an effect on whether or not someone develops diabetes.",
   },
   {
-    src: "/figures/diabetes_bmi.png",
-    alt: "Box plot of diabetes prevalence by BMI category",
+    src: "/figures/diabetes_income.png",
+    alt: "Bar chart of diabetes prevalence by income levels",
     caption:
-      "Diabetes prevalence by BMI category. People with diabetes report to have slightly higher BMIs.",
+      "Those with higher income are less likely to develop diabetes and vice versa.",
   },
   {
     src: "/figures/diabetes_education.png",
@@ -45,22 +45,22 @@ const FIGURES = [
       "People who have healthcare are more likely to be diagnosed.",
   },
   {
-    src: "/figures/diabetes_income.png",
-    alt: "Bar chart of diabetes prevalence by income levels",
+    src: "/figures/diabetes_age.png",
+    alt: "Bar chart of diabetes prevalence by age group",
     caption:
-      "Those with higher income are less likely to develop diabetes and vice versa.",
-  },
-  {
-    src: "/figures/diabetes_lifestyle.png",
-    alt: "Bar chart of diabetes prevalence by lifestyle factor",
-    caption:
-      "Lifestyle factors like physical activities and eating/drinking healthy have an effect on whether or not someone develops diabetes.",
+      "Diabetes prevalence by age group. Risk increases as one ages.",
   },
   {
     src: "/figures/diabetes_sex.png",
     alt: "Bar chart of diabetes prevalence by an individual's sex (male or female)",
     caption:
       "Men appear to be more likely to develop diabetes in this study.",
+  },
+  {
+    src: "/figures/diabetes_bmi.png",
+    alt: "Box plot of diabetes prevalence by BMI category",
+    caption:
+      "Diabetes prevalence by BMI category. People with diabetes report to have slightly higher BMIs.",
   },
 ];
 
@@ -101,17 +101,17 @@ export default function App() {
         <header className="hero">
           <div className="hero-text">
             <p className="eyebrow">Disease Analysis</p>
-            <h1>Predicting Diabetes Risk from Lifestyle, Socioeconomics &amp; Demographics</h1>
+            <h1>Predicting Diabetes Risk from Lifestyle, Socioeconomics, &amp; Demographics</h1>
             <p className="hero-subtitle">
               A data visualization and modeling project using the CDC Diabetes
               Health Indicators dataset (~200k records) to explain which factors are most strongly associated with
-              diabetes risk. Tech stack: Python, React, JavaScript, Jupyter.
+              diabetes risk.
             </p>
             <div className="pill-row">
-              <Pill>Data Visualization</Pill>
               <Pill>Python · pandas · scikit-learn</Pill>
               <Pill>matplotlib · seaborn</Pill>
-              <Pill>Front-end Visualization</Pill>
+              <Pill>React · JavaScript</Pill>
+              <Pill>Jupyter</Pill>
             </div>
             <div className="hero-links">
               {HERO_LINKS.map((link) => (
@@ -145,39 +145,54 @@ export default function App() {
           </article>
 
           <article className="card">
-            <h2>How I Told the Story</h2>
-            <p>
-              I structured the project as a narrative that moves from raw data
-              to an interface-ready summary:
-            </p>
-            <ul>
-              <li>
-                Exploratory charts that reveal who is most at risk in different
-                subgroups.
-              </li>
-              <li>
-                Model-based visualizations (coefficients, feature importances)
-                to show which variables matter most.
-              </li>
-              <li>
-                A layout that can be turned into a React dashboard to surface
-                key metrics and charts in a product context.
-              </li>
-            </ul>
-            <p>
-              This page is a compact view of that pipeline:{" "}
-              <strong>data → visuals → interpretable insights</strong>.
-            </p>
+            <h2>Methods &amp; Approach</h2>
+              <p>
+                I began with exploratory visualizations, then moved into predictive modeling, and ended with statistical validation to confirm the
+                patterns I observed.
+              </p>
+
+              <ul>
+                <li>
+                  <strong>Exploratory Plots:</strong> Barplots and boxplots revealed early patterns,
+                  such as higher diabetes prevalence among smokers, physically inactive individuals,
+                  lower-income groups, and older populations. These insights shaped the three research
+                  questions.
+                </li>
+
+                <li>
+                  <strong>Predictive Modeling:</strong> Logistic Regression helped quantify effect
+                  sizes (e.g., smoking increasing odds by ~41%), while Random Forest models highlighted
+                  which variables were most predictive — such as physical activity, income, BMI, and age.
+                </li>
+
+                <li>
+                  <strong>Statistical Validation:</strong> Chi-square tests, Spearman correlations,
+                  and t-tests confirmed that most relationships were statistically significant,
+                  validating what was seen in the visualizations and model results.
+                </li>
+
+                <li>
+                  <strong>Interpretation:</strong> I contextualized surprising findings, such as
+                  higher diabetes prevalence among individuals with healthcare, by discussing screening
+                  access, reporting biases, and behavior changes after diagnosis.
+                </li>
+              </ul>
+
+              <p>
+                This approach allowed me to connect visual trends, predictive power, and statistical
+                rigor into one coherent story about how lifestyle, socioeconomic status, and
+                demographics shape diabetes risk.
+              </p>
+
           </article>
         </section>
 
         <section className="card gallery-card">
           <div className="section-header">
-            <h2>Selected Visualizations</h2>
+            <h2>Data Visualizations</h2>
             <p>
               A sample of the visuals I created to explain patterns in the
-              dataset. Each figure is paired with interpretation to emphasize
-              storytelling, not just plotting.
+              dataset.
             </p>
           </div>
           <div className="gallery-grid">
@@ -189,15 +204,19 @@ export default function App() {
 
         <section className="card summary-card">
           <h2>Summary</h2>
-          <p>
-            This project combines{" "}
-            <strong>data cleaning</strong>,{" "}
-            <strong>visual exploration</strong>, and{" "}
-            <strong>interpretable modeling</strong> to make chronic disease risk
-            easier to understand. The same patterns and layouts could be
-            embedded into a product-grade dashboard to support public health or
-            clinical decision-making.
-          </p>
+            <p>
+              This project brings together exploratory data analysis, predictive modeling, and statistical
+              validation to understand how lifestyle, socioeconomic status, and demographic factors shape
+              diabetes risk. Across all methods, age, BMI, physical activity, income, and smoking emerged as
+              meaningful predictors, aligning with both public health research and clinical expectations.
+            </p>
+            <p>
+              These findings are not diagnostic, but they highlight patterns that can support early screening,
+              targeted interventions, and improved health literacy. The results emphasize that both individual
+              behaviors and structural barriers contribute to health outcomes—and that prevention strategies
+              must consider both.
+            </p>
+
           <p className="signature">
             Built by <strong>Hanna Pan</strong> · Informatics &amp; ACMS (Data
             Science &amp; Statistics), University of Washington.
