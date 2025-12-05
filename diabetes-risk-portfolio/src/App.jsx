@@ -9,55 +9,55 @@ const HERO_LINKS = [
   },
   {
     label: "Open Analysis Notebook",
-    href: "./notebooks/eda.ipynb",
+    href: "/notebooks/eda.ipynb",
     variant: "secondary",
   },
   {
     label: "Read Full Report",
-    href: "./report.pdf",
+    href: "/report.pdf",
     variant: "secondary",
   },
 ];
 
 const FIGURES = [
   {
-    src: "./figures/diabetes_age.png",
+    src: "/figures/diabetes_age.png",
     alt: "Bar chart of diabetes prevalence by age group",
     caption:
       "Diabetes prevalence by age group. Risk increases as one ages.",
   },
   {
-    src: "./figures/diabetes_bmi.png",
+    src: "/figures/diabetes_bmi.png",
     alt: "Box plot of diabetes prevalence by BMI category",
     caption:
       "Diabetes prevalence by BMI category. People with diabetes report to have slightly higher BMIs.",
   },
   {
-    src: "./figures/diabetes_education.png",
+    src: "/figures/diabetes_education.png",
     alt: "Bar chart of diabetes prevalence by education level",
     caption:
       "There seems to be a pattern as diabetes prevalence decreases as college education level increases.",
   },
   {
-    src: "./figures/diabetes_healthcare.png",
+    src: "/figures/diabetes_healthcare.png",
     alt: "Bar chart of diabetes prevalence by whether or not someone has healthcare",
     caption:
       "People who have healthcare are more likely to be diagnosed.",
   },
   {
-    src: "./figures/diabetes_income.png",
+    src: "/figures/diabetes_income.png",
     alt: "Bar chart of diabetes prevalence by income levels",
     caption:
       "Those with higher income are less likely to develop diabetes and vice versa.",
   },
   {
-    src: "./figures/diabetes_lifestyle.png",
+    src: "/figures/diabetes_lifestyle.png",
     alt: "Bar chart of diabetes prevalence by lifestyle factor",
     caption:
       "Lifestyle factors like physical activities and eating/drinking healthy have an effect on whether or not someone develops diabetes.",
   },
   {
-    src: "./figures/diabetes_sex.png",
+    src: "/figures/diabetes_sex.png",
     alt: "Bar chart of diabetes prevalence by an individual's sex (male or female)",
     caption:
       "Men appear to be more likely to develop diabetes in this study.",
@@ -101,7 +101,7 @@ export default function App() {
         <header className="hero">
           <div className="hero-text">
             <p className="eyebrow">Disease Analysis</p>
-            <h1>Predicting Diabetes Risk from Lifestyle &amp; Demographics</h1>
+            <h1>Predicting Diabetes Risk from Lifestyle, Socioeconomics &amp; Demographics</h1>
             <p className="hero-subtitle">
               A data visualization and modeling project using the CDC Diabetes
               Health Indicators dataset (~200k records) to explain which factors are most strongly associated with
